@@ -9,7 +9,7 @@ export default function Home() {
           <EventCard
             title="Northern Long Trail Backpacking Trip"
             date="Jul 5 - Jul 7 2024"
-            price="$35.50"
+            price={35.5}
             description="Enjoy a backpacking weekend among one of the more remote areas of
             the Green Mountains! We'll be camping and hanging out on
             Friday and Saturday evenings. During the day on Saturday and
