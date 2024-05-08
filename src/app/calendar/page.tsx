@@ -13,7 +13,7 @@ export default function Home() {
               $35.50
             </h6>
             {/* <h6 className="card-subtitle mb-2 text-body-secondary">$35.50</h6> */}
-            <p className="card-text">
+            <p className="card-text text-truncate">
               Enjoy a backpacking weekend among one of the more remote areas of
               the Green Mountains! We&apos;ll be camping and hanging out on
               Friday and Saturday evenings. During the day on Saturday and
@@ -21,7 +21,7 @@ export default function Home() {
               15 miles per day.
             </p>
             <a href="#" className="btn btn-primary">
-              Book now
+              Details
             </a>
           </div>
         </div>
