@@ -1,4 +1,5 @@
 import EventCard from "@/app/ui/calendar/event-card"
+import prisma from "@/lib/prisma"
 
 export default function Home() {
   return (
