@@ -1,5 +1,5 @@
 export default function EventCard({ title, date, price, description }) {
-  let formattedPrice = price.toLocaleString("en-US", {
+  const formattedPrice = price.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
   })
