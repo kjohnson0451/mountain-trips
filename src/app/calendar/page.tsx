@@ -1,7 +1,7 @@
 import EventCard from "@/app/ui/calendar/event-card"
 import { fetchTrips } from "@/lib/data"
 
-export default function Home() {
+export default function Calendar() {
   return (
     <main>
       <div className="container">
