@@ -1,4 +1,16 @@
-export default function EventCard({ title, date, price, description }) {
+type EventCardProps = {
+  title: string
+  date: string
+  price: number
+  description: string
+}
+
+export default function EventCard({
+  title,
+  date,
+  price,
+  description,
+}: EventCardProps) {
   const formattedPrice = price.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",

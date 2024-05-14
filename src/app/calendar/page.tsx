@@ -12,7 +12,7 @@ export default async function Calendar() {
             <EventCard
               title={trip.title}
               date="Jul 5 - Jul 7 2024"
-              price={trip.price}
+              price={35.5}
               description={trip.description}
             />
           </div>
