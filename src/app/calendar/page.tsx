@@ -1,20 +1,15 @@
 import EventCard from "@/app/ui/calendar/event-card"
-import { fetchTrips } from "@/lib/data"
+import prisma from "@/lib/prisma"
 
 export default async function Calendar() {
-  const trips = await fetchTrips()
+  const trips = await prisma.trip.findMany()
   return (
     <main>
       <div className="container">
         <h1 className="mb-4">Calendar</h1>
         {trips.map((trip) => (
           <div key={trip.id} className="card" style={{ width: "48rem" }}>
-            <EventCard
-              title={trip.title}
-              date="Jul 5 - Jul 7 2024"
-              price={35.5}
-              description={trip.description}
-            />
+            <EventCard trip={trip} />
           </div>
         ))}
       </div>
