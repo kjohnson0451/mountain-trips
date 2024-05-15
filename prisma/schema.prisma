@@ -14,6 +14,6 @@ model Trip {
   id             Int         @id @default(autoincrement())
   title          String
   date           DateTime    @db.Date
-  price          Decimal     @db.Decimal(65,2)
+  price          Decimal     @db.Money
   description    String
 }
