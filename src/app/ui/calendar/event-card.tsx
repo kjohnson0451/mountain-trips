@@ -7,7 +7,9 @@ export default function EventCard({ trip }: { trip: EventCardProps }) {
     <div className="card" style={{ width: "48rem" }}>
       <div className="card-body">
         <h5 className="card-title">{trip.title}</h5>
-        <h6 className="card-subtitle mb-2 text-body-secondary">{"What"}</h6>
+        <h6 className="card-subtitle mb-2 text-body-secondary">
+          {trip.date.toDateString()}
+        </h6>
         <h6 className="card-subtitle mb-2" style={{ color: "#198754" }}>
           ${trip.price.toFixed(2)}
         </h6>
