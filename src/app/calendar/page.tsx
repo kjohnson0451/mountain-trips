@@ -8,7 +8,7 @@ export default async function Calendar() {
       <div className="container">
         <h1 className="mb-4">Calendar</h1>
         {trips.map((trip) => (
-          <div key={trip.id} className="card" style={{ width: "48rem" }}>
+          <div key={trip.id} className="card mb-2" style={{ width: "48rem" }}>
             <EventCard trip={trip} />
           </div>
         ))}
