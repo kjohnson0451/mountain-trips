@@ -11,7 +11,7 @@ export default function EventCard({ trip }: { trip: EventCardProps }) {
           {trip.date.toDateString()}
         </h6>
         <h6 className="card-subtitle mb-2" style={{ color: "#198754" }}>
-          ${trip.price.toFixed(2)}
+          {trip.price > 0 ? `$${trip.price.toFixed(2)}` : "Free"}
         </h6>
         <p className="card-text text-truncate">{trip.description}</p>
         <a href="#" className="btn btn-primary">
