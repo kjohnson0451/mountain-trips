@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Trip {
-  id             Int         @id @default(autoincrement())
+  id             String      @id @default(uuid())
   title          String      @unique
   date           DateTime    @db.Date
   price          Decimal     @db.Money
