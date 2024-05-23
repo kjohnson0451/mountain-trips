@@ -1,8 +1,8 @@
 import EventCard from "@/app/ui/calendar/event-card"
-import prisma from "@/lib/prisma"
+import { fetchTrips } from "@/lib/data"
 
 export default async function Calendar() {
-  const trips = await prisma.trip.findMany()
+  const trips = await fetchTrips()
   return (
     <main>
       <div className="container">
