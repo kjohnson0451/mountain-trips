@@ -10,12 +10,17 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className="container">
-      <h2>{trip?.title}</h2>
-      <div>{trip?.date.toDateString()}</div>
-      <div style={{ color: "#198754" }}>
-        {trip.price > 0 ? `$${trip.price.toFixed(2)}` : "Free"}
+      <div className="row">
+        <div className="col">
+          <h2>{trip?.title}</h2>
+          <div>{trip?.date.toDateString()}</div>
+          <div style={{ color: "#198754" }}>
+            {trip.price > 0 ? `$${trip.price.toFixed(2)}` : "Free"}
+          </div>
+          <div>{trip?.description}</div>
+        </div>
+        <div className="col">hello</div>
       </div>
-      <div>{trip?.description}</div>
     </div>
   )
 }
