@@ -1,4 +1,5 @@
 import { Trip } from "@prisma/client"
+import Link from "next/link"
 
 type EventCardProps = Trip
 
@@ -14,9 +15,9 @@ export default function EventCard({ trip }: { trip: EventCardProps }) {
           {trip.price > 0 ? `$${trip.price.toFixed(2)}` : "Free"}
         </h6>
         <p className="card-text text-truncate">{trip.description}</p>
-        <a href="#" className="btn btn-primary">
+        <Link href={`/calendar/${trip.id}`} className="btn btn-primary">
           Details
-        </a>
+        </Link>
       </div>
     </div>
   )

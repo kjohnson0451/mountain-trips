@@ -16,4 +16,5 @@ model Trip {
   date           DateTime    @db.Date
   price          Decimal     @db.Money
   description    String
+  image          String?
 }
