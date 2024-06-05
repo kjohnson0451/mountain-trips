@@ -1,7 +1,26 @@
+import {
+  LoginButton,
+  LogoutButton,
+  ProfileButton,
+  RegisterButton,
+} from "@/components/buttons.component"
+
 export default function Home() {
   return (
-    <main>
-      <div className="container">Home</div>
+    <main
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "70vh",
+      }}
+    >
+      <div>
+        <LoginButton />
+        <RegisterButton />
+        <LogoutButton />
+        <ProfileButton />
+      </div>
     </main>
   )
 }

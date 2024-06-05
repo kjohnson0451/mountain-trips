@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client"
+import { hash } from "bcryptjs"
 const prisma = new PrismaClient()
 
 async function main() {
@@ -47,6 +48,17 @@ async function main() {
       price: 40,
       description:
         "Want to bike Cape Cod's Rail Trail during the tail end of this summer? Come with us for the weekend as we hop on our bikes and explore the beautiful beaches, lakes and ice cream shops of Cape Cod! On Friday and Saturday nights, we'll be staying at Nickerson State Park where we can enjoy good company around the campfire.",
+    },
+  })
+
+  const password = await hash("password123", 12)
+  await prisma.user.upsert({
+    where: { email: "admin@admin.com" },
+    update: {},
+    create: {
+      email: "admin@admin.com",
+      name: "Admin",
+      password,
     },
   })
 }
