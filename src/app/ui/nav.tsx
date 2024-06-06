@@ -16,14 +16,14 @@ export default function Nav() {
   ]
 
   return (
-    <ul className="nav nav-pills">
+    <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       {links.map((link) => {
         return (
-          <li key={link.name} className="nav-item">
+          <li key={link.name}>
             <Link
               href={link.href}
-              className={clsx("nav-link", {
-                active: pathname === link.href,
+              className={clsx("nav-link px-2", {
+                "link-secondary": pathname === link.href,
               })}
             >
               {link.name}
