@@ -1,10 +1,3 @@
-import {
-  LoginButton,
-  LogoutButton,
-  ProfileButton,
-  RegisterButton,
-} from "@/components/buttons.component"
-
 export default function Home() {
   return (
     <main
@@ -14,13 +7,6 @@ export default function Home() {
         alignItems: "center",
         height: "70vh",
       }}
-    >
-      <div>
-        <LoginButton />
-        <RegisterButton />
-        <LogoutButton />
-        <ProfileButton />
-      </div>
-    </main>
+    ></main>
   )
 }
