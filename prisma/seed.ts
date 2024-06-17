@@ -12,6 +12,7 @@ async function main() {
       price: 35.5,
       description:
         "Enjoy a backpacking weekend among one of the more remote areas of the Green Mountains! We'll be camping and hanging out on Friday and Saturday evenings. During the day on Saturday and Sunday, we'll be backpacking along the Long Trail at rougly 15 miles per day.",
+      image: "photo_01",
     },
   })
 
@@ -24,6 +25,7 @@ async function main() {
       price: 0,
       description:
         "Join us as we backpack the classic Zealand-Bonds traverse, an overnight trek that will take us through one of the most remote section of the White Mountains! On Saturday, we'll summit Mt Zealand and continue to Camp Guyot where we'll be staying the night. On Sunday, we'll summit Mt Bond and Bondcliff and then make our way to the trail's end.",
+      image: "photo_14",
     },
   })
 
@@ -36,6 +38,7 @@ async function main() {
       price: 205,
       description:
         "Ever wanted to stay at one of AMC's mountainside huts? Join us as we hike the Pemigewasset wilderness for the weekend with the bonus of staying at Greenleaf hut! We'll summit Garfield and Lafayette on Saturday and do a partial Franconia ridge loop on Sunday.",
+      image: "photo_03",
     },
   })
 
@@ -48,6 +51,7 @@ async function main() {
       price: 40,
       description:
         "Want to bike Cape Cod's Rail Trail during the tail end of this summer? Come with us for the weekend as we hop on our bikes and explore the beautiful beaches, lakes and ice cream shops of Cape Cod! On Friday and Saturday nights, we'll be staying at Nickerson State Park where we can enjoy good company around the campfire.",
+      image: "photo_08",
     },
   })
 
