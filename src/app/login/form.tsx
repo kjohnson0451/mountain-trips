@@ -1,40 +1,45 @@
 "use client"
 
 import { signIn } from "next-auth/react"
+import { useSearchParams, useRouter } from "next/navigation"
 import { ChangeEvent, useState } from "react"
 
-export const RegisterForm = () => {
-  let [loading, setLoading] = useState(false)
-  let [formValues, setFormValues] = useState({
-    name: "",
+export const LoginForm = () => {
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
+  const [formValues, setFormValues] = useState({
     email: "",
     password: "",
   })
+  const [error, setError] = useState("")
+
+  const searchParams = useSearchParams()
+  const callbackUrl = searchParams.get("callbackUrl") || "/"
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
-
     try {
-      const res = await fetch("/api/register", {
-        method: "POST",
-        body: JSON.stringify(formValues),
-        headers: {
-          "Content-Type": "application/json",
-        },
+      setLoading(true)
+      setFormValues({ email: "", password: "" })
+
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: formValues.email,
+        password: formValues.password,
+        callbackUrl,
       })
 
       setLoading(false)
-      if (!res.ok) {
-        alert((await res.json()).message)
-        return
-      }
 
-      signIn(undefined, { callbackUrl: "/" })
+      console.log(res)
+      if (!res?.error) {
+        router.push(callbackUrl)
+      } else {
+        setError("Invalid email or password")
+      }
     } catch (error: any) {
       setLoading(false)
-      console.error(error)
-      alert(error.message)
+      setError(error)
     }
   }
 
@@ -45,19 +50,7 @@ export const RegisterForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          required
-          type="text"
-          name="name"
-          value={formValues.name}
-          onChange={handleChange}
-          className="form-control"
-        />
-      </div>
+      {error && <p className="text-danger">{error}</p>}
       <div className="mb-3">
         <label htmlFor="email" className="form-label">
           Email
@@ -85,7 +78,7 @@ export const RegisterForm = () => {
         />
       </div>
       <button type="submit" className="btn btn-primary" disabled={loading}>
-        {loading ? "loading..." : "Register"}
+        {loading ? "loading..." : "Sign-in"}
       </button>
     </form>
   )

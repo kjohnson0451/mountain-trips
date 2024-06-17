@@ -4,6 +4,9 @@ import type { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
 export const authOptions: NextAuthOptions = {
+  pages: {
+    signIn: "/login",
+  },
   session: {
     strategy: "jwt",
   },
@@ -42,4 +45,27 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    session: ({ session, token }) => {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.id,
+          randomKey: token.randomKey,
+        },
+      }
+    },
+    jwt: ({ token, user }) => {
+      if (user) {
+        const u = user as unknown as any
+        return {
+          ...token,
+          id: u.id,
+          randomKey: u.randomKey,
+        }
+      }
+      return token
+    },
+  },
 }
