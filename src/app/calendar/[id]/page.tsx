@@ -26,6 +26,9 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div>{trip?.description}</div>
         </div>
         <div className="col">
+          {/*
+              I'm storing the StaticImageData instances in an object in lib/photos.ts.
+              It's hacky and is bad practice, but it works for now */}
           <Image
             src={trip?.image ? photos[trip.image] : ""}
             alt="Trip photo"
