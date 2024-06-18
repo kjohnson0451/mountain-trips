@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <div className="col">
           <div>{trip?.date.toDateString()}</div>
           <div style={{ color: "#198754" }}>
-            {trip?.price > 0 ? `$${trip?.price.toFixed(2)}` : "Free"}
+            {Number(trip?.price) > 0 ? `$${trip?.price.toFixed(2)}` : "Free"}
           </div>
           <div>{trip?.description}</div>
         </div>
