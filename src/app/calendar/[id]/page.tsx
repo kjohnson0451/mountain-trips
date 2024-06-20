@@ -1,12 +1,14 @@
 import prisma from "@/lib/prisma"
 import Image from "next/image"
-import photos from "@/lib/photos"
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id
   const trip = await prisma.trip.findUnique({
     where: {
       id,
+    },
+    include: {
+      photo: true, // All posts where authorId == 20
     },
   })
 
@@ -26,11 +28,10 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div>{trip?.description}</div>
         </div>
         <div className="col">
-          {/*
-              I'm storing the StaticImageData instances in an object in lib/photos.ts.
-              It's hacky and is bad practice, but it works for now */}
           <Image
-            src={trip?.image ? photos[trip.image] : ""}
+            src={`/photos/${trip?.photo?.filename}`}
+            width={trip?.photo?.width}
+            height={trip?.photo.height}
             alt="Trip photo"
             style={{
               maxWidth: "100%",
